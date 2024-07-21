@@ -1,33 +1,19 @@
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({
- tex2jax: {
- inlineMath: [['$', '$'] ],
- displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
- }
- });
-</script>
-
 # easyAPFinUnity
 ロボットの経路計画法の一つである人工ポテンシャル法をUnityで簡単に実装したもの
 
 # 概要
 人工ポテンシャル法では以下の数式を用いて，ロボットが障害物を自動で回避しながら目的地まで移動する．
-ここで，$c_{g}$，$c_{o}$，$l_{g}$，$g_{o}$は定数であり，
-$||{}^{r}p_{g}||^{2}$および$||{}^{r}p_{oi}||^{2}$はそれぞれ目標位置からロボットまでの距離，障害物からロボットまでの距離である．
+ここで，c_{g}，c_{o}，l_{g}，g_{o}は定数であり，
+![数式](latex_eq\pg.png)
+および
+![数式](latex_eq\poi.png)
+はそれぞれ目標位置からロボットまでの距離，障害物からロボットまでの距離である．
 
-$
-  {}^{r}U = \frac{1}{c_{g}} {}^{r}U_{o}  {}^{r}U_{g} + {}^{r}U_{g}
-$
+![数式](latex_eq\eq1.png)
 
-$
-  {}^{r}U_{g} = c_{g}  \left(1-\exp \left( - \frac{||{}^{r}p_{g}||^{2}}{l^{2}_{g}} \right) \right)
-$
+![数式](latex_eq\eq2.png)
 
-$
-  {}^{r}U_{o} = \sum_{i \in N_{0}} c_{o}\exp \left( - \frac{||{}^{r}p_{oi}||^{2}}{l^{2}_{o}} \right) 
-$
+![数式](latex_eq\eq3.png)
 
 一番目のポテンシャル場${}^{r}U$を求める関数を$f$とする．
 この関数$f$の勾配を求めることによって，ロボットに与える力を計算できる．
